@@ -37,7 +37,16 @@ print_greeting()
 # - Ensure to provide feedback for non-alphabetical or invalid entries.
 
 def check_letter():
-    # Your control flow logic goes here
+    user_letter = input("Enter an uppercase or lowercase letter: ")
+    converted_user_letter = user_letter.lower()
+    vowels = ['a', 'e', 'i', 'o', 'u']
+
+    for vowel in vowels:
+      if converted_user_letter == vowel:
+        print(f"The letter {user_letter} is a vowel.")
+        return
+
+    print(f"The letter {user_letter} is a consonant.")
 
 # Call the function
 check_letter()
@@ -59,8 +68,20 @@ check_letter()
 # - Use a conditional statement to check if the age meets the minimum voting age requirement.
 
 def check_voting_eligibility():
-    # Your control flow logic goes here
 
+    user_age = input("Please enter your age: ")
+    try:
+        converted_user_age = int(user_age)
+        voting_age = 18
+        if converted_user_age < 0:
+            print ("Please enter an age greater than or equal to 0")
+            return
+        elif converted_user_age >= voting_age:
+            print("Congrats! You can vote!")
+    except:
+        print(f"Could not convert {user_age} into a valid integer. Please try again.")
+    
+    
 # Call the function
 check_voting_eligibility()
 
@@ -83,79 +104,93 @@ check_voting_eligibility()
 # - Apply conditional logic to perform the correct age calculation based on the dog's age.
 
 def calculate_dog_years():
-    # Your control flow logic goes here
-
+    dog_age = input("Input a dog's age")
+    try:
+        converted_dog_age = int(dog_age)
+        calculated_dog_age = 0
+        if converted_dog_age < 0:
+            print("Please enter a valid dog age!")
+            return
+        elif converted_dog_age == 1:
+            calculated_dog_age = 10
+        elif converted_dog_age == 2:
+            calculated_dog_age = 20
+        elif converted_dog_age > 2:
+            calculated_dog_age = 20 + ( (converted_dog_age - 2) * 7)
+    except:
+        print("Could not successfully convert user input into a valid int")
+      
 # Call the function
 calculate_dog_years()
 
-# Exercise 4: Weather Advice
-#
-# Write a Python script named `weather_advice` that provides clothing advice based on weather conditions.
-#
-# Requirements:
-# - The script should prompt the user to enter if it is cold (yes/no).
-# - Then, ask if it is raining (yes/no).
-# - Use logical operators to determine clothing advice:
-#   - If it is cold AND raining, print "Wear a waterproof coat."
-#   - If it is cold BUT NOT raining, print "Wear a warm coat."
-#   - If it is NOT cold but raining, print "Carry an umbrella."
-#   - If it is NOT cold AND NOT raining, print "Wear light clothing."
-#
-# Hints:
-# - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
+# # Exercise 4: Weather Advice
+# #
+# # Write a Python script named `weather_advice` that provides clothing advice based on weather conditions.
+# #
+# # Requirements:
+# # - The script should prompt the user to enter if it is cold (yes/no).
+# # - Then, ask if it is raining (yes/no).
+# # - Use logical operators to determine clothing advice:
+# #   - If it is cold AND raining, print "Wear a waterproof coat."
+# #   - If it is cold BUT NOT raining, print "Wear a warm coat."
+# #   - If it is NOT cold but raining, print "Carry an umbrella."
+# #   - If it is NOT cold AND NOT raining, print "Wear light clothing."
+# #
+# # Hints:
+# # - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
 
-def weather_advice():
-    # Your control flow logic goes here
+# def weather_advice():
+#     # Your control flow logic goes here
 
-# Call the function
-weather_advice()
+# # Call the function
+# weather_advice()
 
-# Exercise 5: What's the Season?
-#
-# Write a Python function named `determine_season` that figures out the season based on the entered date.
-#
-# Requirements:
-# - The function should first prompt the user to enter the month (as three characters): "Enter the month of the year (Jan - Dec):"
-# - Then, the function should prompt the user to enter the day of the month: "Enter the day of the month:"
-# - Determine the current season based on the date:
-#      - Dec 21 - Mar 19: Winter
-#      - Mar 20 - Jun 20: Spring
-#      - Jun 21 - Sep 21: Summer
-#      - Sep 22 - Dec 20: Fall
-# - Print the season for the entered date in the format: "<Mmm> <dd> is in <season>."
-#
-# Hints:
-# - Use 'in' to check if a string is in a list or tuple.
-# - Adjust the season based on the day of the month when needed.
-# - Ensure to validate input formats and handle unexpected inputs gracefully.
+# # Exercise 5: What's the Season?
+# #
+# # Write a Python function named `determine_season` that figures out the season based on the entered date.
+# #
+# # Requirements:
+# # - The function should first prompt the user to enter the month (as three characters): "Enter the month of the year (Jan - Dec):"
+# # - Then, the function should prompt the user to enter the day of the month: "Enter the day of the month:"
+# # - Determine the current season based on the date:
+# #      - Dec 21 - Mar 19: Winter
+# #      - Mar 20 - Jun 20: Spring
+# #      - Jun 21 - Sep 21: Summer
+# #      - Sep 22 - Dec 20: Fall
+# # - Print the season for the entered date in the format: "<Mmm> <dd> is in <season>."
+# #
+# # Hints:
+# # - Use 'in' to check if a string is in a list or tuple.
+# # - Adjust the season based on the day of the month when needed.
+# # - Ensure to validate input formats and handle unexpected inputs gracefully.
 
-def determine_season():
-    # Your control flow logic goes here
+# def determine_season():
+#     # Your control flow logic goes here
 
-# Call the function
-determine_season()
+# # Call the function
+# determine_season()
 
-# Exercise 6: Number Guessing Game
-#
-# Write a Python function named `guess_number` that allows a user to guess a predetermined number within a range.
-#
-# Requirements:
-# - Set a fixed number as the target for guessing (e.g., 42).
-# - Prompt the user to guess a number within a range (e.g., 1 to 100).
-# - Allow the user to guess up to five times.
-# - After each guess, use conditional statements with AND, OR, and NOT to give the user hints like:
-#   - "Guess is too low" or "Guess is too high."
-#   - "Last chance!" when they are on their fifth guess.
-# - Print "Congratulations, you guessed correctly!" if they guess the number.
-# - Print "Sorry, you failed to guess the number in five attempts." if they do not succeed.
-#
-# Hints:
-# - Use a for loop with a range to limit guesses to five.
-# - Use logical AND, OR, and NOT to check conditions and provide appropriate feedback.
+# # Exercise 6: Number Guessing Game
+# #
+# # Write a Python function named `guess_number` that allows a user to guess a predetermined number within a range.
+# #
+# # Requirements:
+# # - Set a fixed number as the target for guessing (e.g., 42).
+# # - Prompt the user to guess a number within a range (e.g., 1 to 100).
+# # - Allow the user to guess up to five times.
+# # - After each guess, use conditional statements with AND, OR, and NOT to give the user hints like:
+# #   - "Guess is too low" or "Guess is too high."
+# #   - "Last chance!" when they are on their fifth guess.
+# # - Print "Congratulations, you guessed correctly!" if they guess the number.
+# # - Print "Sorry, you failed to guess the number in five attempts." if they do not succeed.
+# #
+# # Hints:
+# # - Use a for loop with a range to limit guesses to five.
+# # - Use logical AND, OR, and NOT to check conditions and provide appropriate feedback.
 
-def guess_number():
-    # Your control flow logic goes here
+# def guess_number():
+#     # Your control flow logic goes here
 
-# Call the function
-guess_number()
+# # Call the function
+# guess_number()
 
